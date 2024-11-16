@@ -607,6 +607,7 @@ article {
         height: 350px;
         background-color: var(--gray);
         border-radius: 10px;
+        color: #ff0000;
     }
 
     .music-palyer {
