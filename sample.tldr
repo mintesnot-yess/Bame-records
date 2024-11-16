@@ -1,0 +1,256 @@
+{
+	"tldrawFileFormatVersion": 1,
+	"schema": {
+		"schemaVersion": 2,
+		"sequences": {
+			"com.tldraw.store": 4,
+			"com.tldraw.asset": 1,
+			"com.tldraw.camera": 1,
+			"com.tldraw.document": 2,
+			"com.tldraw.instance": 25,
+			"com.tldraw.instance_page_state": 5,
+			"com.tldraw.page": 1,
+			"com.tldraw.instance_presence": 5,
+			"com.tldraw.pointer": 1,
+			"com.tldraw.shape": 4,
+			"com.tldraw.asset.bookmark": 2,
+			"com.tldraw.asset.image": 5,
+			"com.tldraw.asset.video": 5,
+			"com.tldraw.shape.group": 0,
+			"com.tldraw.shape.text": 2,
+			"com.tldraw.shape.bookmark": 2,
+			"com.tldraw.shape.draw": 2,
+			"com.tldraw.shape.geo": 9,
+			"com.tldraw.shape.note": 8,
+			"com.tldraw.shape.line": 5,
+			"com.tldraw.shape.frame": 0,
+			"com.tldraw.shape.arrow": 5,
+			"com.tldraw.shape.highlight": 1,
+			"com.tldraw.shape.embed": 4,
+			"com.tldraw.shape.image": 4,
+			"com.tldraw.shape.video": 2,
+			"com.tldraw.binding.arrow": 0
+		}
+	},
+	"records": [
+		{
+			"gridSize": 10,
+			"name": "",
+			"meta": {},
+			"id": "document:document",
+			"typeName": "document"
+		},
+		{
+			"meta": {},
+			"id": "page:page",
+			"name": "Page 1",
+			"index": "a1",
+			"typeName": "page"
+		},
+		{
+			"id": "pointer:pointer",
+			"typeName": "pointer",
+			"x": 4876.346337142119,
+			"y": -1389.0820797950746,
+			"lastActivityTimestamp": 1731673828821,
+			"meta": {}
+		},
+		{
+			"followingUserId": null,
+			"opacityForNextShape": 1,
+			"stylesForNextShape": {
+				"tldraw:geo": "rectangle",
+				"tldraw:size": "xl",
+				"tldraw:color": "black"
+			},
+			"brush": null,
+			"scribbles": [],
+			"cursor": {
+				"type": "move",
+				"rotation": 0
+			},
+			"isFocusMode": false,
+			"exportBackground": true,
+			"isDebugMode": false,
+			"isToolLocked": false,
+			"screenBounds": {
+				"x": 0,
+				"y": 0,
+				"w": 1586,
+				"h": 903
+			},
+			"insets": [
+				false,
+				false,
+				true,
+				false
+			],
+			"zoomBrush": null,
+			"isGridMode": false,
+			"isPenMode": false,
+			"chatMessage": "",
+			"isChatting": false,
+			"highlightedUserIds": [],
+			"isFocused": true,
+			"devicePixelRatio": 1,
+			"isCoarsePointer": false,
+			"isHoveringCanvas": true,
+			"openMenus": [],
+			"isChangingStyle": false,
+			"isReadonly": false,
+			"meta": {},
+			"duplicateProps": null,
+			"id": "instance:instance",
+			"currentPageId": "page:page",
+			"typeName": "instance"
+		},
+		{
+			"editingShapeId": null,
+			"croppingShapeId": null,
+			"selectedShapeIds": [
+				"shape:ZjvGE8pubjdafNlDWd7-6"
+			],
+			"hoveredShapeId": null,
+			"erasingShapeIds": [],
+			"hintingShapeIds": [
+				"shape:AOVeGEHJPsg1DlUYJbfI5"
+			],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:page",
+			"pageId": "page:page",
+			"typeName": "instance_page_state"
+		},
+		{
+			"x": -636.3463371421194,
+			"y": 3479.0820797950746,
+			"z": 0.1,
+			"meta": {},
+			"id": "camera:page:page",
+			"typeName": "camera"
+		},
+		{
+			"x": 13392.41088516645,
+			"y": -2085.2831275412204,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:AEck_VfxOubEAZKit_xwd",
+			"type": "frame",
+			"props": {
+				"w": 4075.8898898628304,
+				"h": 5194.80970171383,
+				"name": ""
+			},
+			"parentId": "page:page",
+			"index": "a5B1t",
+			"typeName": "shape"
+		},
+		{
+			"x": 325.9797479998447,
+			"y": 402.50240993537864,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:CAUCO7ZEQq4r1Vm8zcmhw",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "xl",
+				"w": 1807.53125,
+				"text": "BAME-RECORDS/\n├── app/\n│   ├── Controllers/\n│   │   ├── AdminController.php\n│   │   ├── IndexController.php\n│   │   ├── LoginController.php\n│   │   └── StudioBookingController.php\n│   ├── Core/\n│   │   ├── Database.php\n│   │   ├── Helpers.php         # Renamed function.php to Helpers.php for clarity\n│   │   └── Router.php\n│   ├── Models/                 # New folder for database models (if applicable)\n│   │   ├── User.php\n│   │   ├── StudioBooking.php\n│   │   └── Artist.php\n│   └── Views/\n│       ├── admin/\n│       │   ├── auth/\n│       │   │   └── login.php\n│       │   ├── pages/\n│       │   │   ├── artists.php\n│       │   │   ├── events.php\n│       │   │   ├── home.php\n│       │   │   └── studio-booking.php\n│       │   ├── partials/\n│       │   │   ├── aside.php\n│       │   │   ├── footer.php\n│       │   │   ├── header.php\n│       │   │   └── nav.php\n│       │   └── index.php\n│       ├── 404.php\n│       ├── add_studio_booking.php\n│       └── index.view.php\n├── public/\n│   ├── assets/\n│   │   ├── css/                 # Subfolder for stylesheets\n│   │   ├── js/                  # Subfolder for JavaScript files\n│   │   └── images/              # Subfolder for images\n│   ├── favicon.png\n│   └── index.php\n├── routes/\n│   └── web.php                  # Routing configuration file\n├── storage/                     # New folder for storage (logs, cache, etc.)\n│   ├── cache/\n│   └── logs/\n├── .env                         # Environment configuration file\n├── composer.json                # Composer dependencies (if using PHP Composer)\n└── README.md",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.6489520301674998
+			},
+			"parentId": "shape:AEck_VfxOubEAZKit_xwd",
+			"index": "a2BY3",
+			"typeName": "shape"
+		},
+		{
+			"x": 8860.79896505919,
+			"y": -1844.2927820504403,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:UL32ugDYKkR7NEmvlBHe7",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "xl",
+				"w": 3845.922848336694,
+				"text": "BAME-RECORDS/\n├── app/\n│   ├── Controllers/\n│   ├── Core/\n│   ├── Models/                 # New folder for database models (if applicable)\n│   └── Views/\n├── public/\n│   ├── assets/           \n│   ├── favicon.png\n│   └── index.php\n├── routes/\n│   └── web.php                  # Routing configuration file\n└── README.md",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 2.200853576544184
+			},
+			"parentId": "page:page",
+			"index": "a66ne",
+			"typeName": "shape"
+		},
+		{
+			"x": 8837.055391283511,
+			"y": -2140.493382441349,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:LywfY6fYDEnHrrOXPGluR",
+			"type": "frame",
+			"props": {
+				"w": 4075.8898898628304,
+				"h": 5194.80970171383,
+				"name": ""
+			},
+			"parentId": "page:page",
+			"index": "a43sp",
+			"typeName": "shape"
+		},
+		{
+			"x": 145.97974799984513,
+			"y": 282.50240993537864,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:ZjvGE8pubjdafNlDWd7-6",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "xl",
+				"w": 631.0333300447251,
+				"text": "BAME-RECORDS/\n├── app/\n├── public/\n├── routes/\n└── README.md",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 2.7987152181472443
+			},
+			"parentId": "shape:AOVeGEHJPsg1DlUYJbfI5",
+			"index": "a44um",
+			"typeName": "shape"
+		},
+		{
+			"x": 4470.26954628306,
+			"y": -2190.493382441349,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:AOVeGEHJPsg1DlUYJbfI5",
+			"type": "frame",
+			"props": {
+				"w": 4075.8898898628304,
+				"h": 5194.80970171383,
+				"name": ""
+			},
+			"parentId": "page:page",
+			"index": "a35fL",
+			"typeName": "shape"
+		}
+	]
+}
