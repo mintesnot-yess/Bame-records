@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $database = new Database;
 if (isset($_SESSION['admin'])) {
 
@@ -9,6 +11,8 @@ if (isset($_SESSION['admin'])) {
         $ArtistActive = '';
         $BookingActive = '';
         $EventActive = 'active';
+        $MusicActive = '';
+
         $events = $database->query("select * from events");
 
     } elseif (isset($_GET['artists'])) {
@@ -16,6 +20,7 @@ if (isset($_SESSION['admin'])) {
         $dashboardActive = '';
         $EventActive = '';
         $BookingActive = '';
+        $MusicActive = '';
 
         $artists = $database->query("select * from artists");
 
@@ -24,11 +29,18 @@ if (isset($_SESSION['admin'])) {
         $dashboardActive = '';
         $EventActive = '';
         $BookingActive = 'active';
+        $MusicActive = '';
+
         $bookings = $database->query("SELECT * FROM `studio-booking`")->fetchAll();
         $studioFreeTimes = $database->query("SELECT * FROM `studio-free-time`")->fetchAll();
 
     } elseif (isset($_GET['musics'])) {
         $musics = $database->query("SELECT * FROM `musics`")->fetchAll();
+        $MusicActive = 'active';
+        $ArtistActive = '';
+        $dashboardActive = '';
+        $EventActive = '';
+        $BookingActive = '';
 
     } else {
         $dashboardActive = 'active';
@@ -39,7 +51,6 @@ if (isset($_SESSION['admin'])) {
         $events = $database->query("select * from events LIMIT 3 ");
         $musics = $database->query("select * from musics LIMIT 3 ");
         $bookings = $database->query("SELECT * FROM `studio-booking` LIMIT 3")->fetchAll();
-
         $artists_count = $database->query("SELECT COUNT(*) as count FROM artists");
         $events_count = $database->query("SELECT COUNT(*) as count FROM events");
 
@@ -89,6 +100,7 @@ if (isset($_SESSION['admin'])) {
         }
 
     }
+
     if (isset($_POST['add-musics'])) {
         $artist_name = $_POST['artist_name'];
         $title = $_POST['title'];
@@ -119,17 +131,94 @@ if (isset($_SESSION['admin'])) {
         $query = "INSERT INTO `studio-free-time` (`free-time-1`, `free-time-2`, `created-date`) VALUES ('$timeFrom', '$timeTo', '$current_date');";
 
         if ($database->query($query)) {
-            header(header: "location:admin?studio-booking&msg=$artist_name add successfully");
+            header(header: "location:admin?studio-booking&msg=studio free time add successfully");
             exit();
         }
 
     }
+    // edit artist
+    if (isset($_GET['edit-artist'])) {
+        $id = $_GET['edit-artist'];
+        $artists = $database->query("SELECT * FROM `artists` WHERE id = $id;");
+    }
+
+    if (isset($_POST['edit-artist'])) {
+        $id = $_POST['artist-id'];
+        $name = $_POST['artist-name'];
+        $link = $_POST['link'];
+        $catagory = $_POST['artist_catagoty'];
+        $query = "UPDATE `artists` SET `name` = '$name', `link` = '$link', `catagory` = '$catagory' WHERE `artists`.`id` = $id;";
+        if ($database->query($query)) {
+            header(header: "location:admin?artists&msg=$name edit successfully");
+            exit();
+        }
+    }
+
+    // ------------------------------------------
+
+    // edit events
+    if (isset($_GET['edit-events'])) {
+        $id = $_GET['edit-events'];
+        $events = $database->query("SELECT * FROM `events` WHERE id = $id;");
+    }
+
+    if (isset($_POST['edit-events'])) {
+        $id = $_POST['event-id'];
+        $name = $_POST['event-name'];
+        $link = $_POST['link'];
+        $place = $_POST['place'];
+        $date = $_POST['event-date'];
+
+
+        $query = "UPDATE `events` SET `name` = '$name', `place` = '$place', `link` = '$link', `date` = '$date' WHERE `events`.`id` = $id;
+";
+        if ($database->query($query)) {
+            header(header: "location:admin?events&msg=$name edit successfully");
+            exit();
+        }
+    }
+
+    // ------------------------------------------
+
+    // edit music
+    if (isset($_GET['edit-music'])) {
+        $id = $_GET['edit-music'];
+        $musics = $database->query("SELECT * FROM `musics` WHERE id = $id;");
+    }
+
+    if (isset($_POST['edit-music'])) {
+        $id = $_POST['id'];
+        $artist_name = $_POST['artist'];
+        $title = $_POST['title'];
+        $link = $_POST['link'];
+
+        $query = "UPDATE `musics` SET `artist` = '$artist_name', `title` = '$title ', `link` = '$link' WHERE `musics`.`id` = $id";
+        if ($database->query($query)) {
+            header(header: "location:admin?musics&msg=$artist_name  edit successfully");
+            exit();
+        }
+    }
+
+    // ------------------------------------------
+
+
+
+
     //delete artist
     if (isset($_GET['delete-artist'])) {
         $id = $_GET['delete-artist'];
         $query = "DELETE FROM `artists` WHERE `id` = $id";
         if ($database->query($query)) {
             header(header: "location:admin?artists&msg=artist delete successfully");
+            exit();
+        }
+    }
+    //delete music
+    if (isset($_GET['delete-music'])) {
+        $id = $_GET['delete-music'];
+        $query = "DELETE FROM `musics` WHERE `id` = $id";
+        if ($database->query($query)) {
+            header(header: "location:admin?musics&msg=music delete successfully");
             exit();
         }
     }

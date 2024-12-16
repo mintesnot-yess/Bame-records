@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="BAME Records is a revolutionary platform for digital music distribution." />
     <meta name="keywords" content="BAME Records, music, distribution, streaming" />
-    <title><?=$PageTitle?></title>
+    <title><?= $PageTitle ?></title>
     <link rel="icon" type="image/x-icon" href="favicon.png" />
     <!-- Fontawsome  ---->
 
@@ -19,7 +19,7 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- css  ---->
-    <link rel="stylesheet" href="<?=$CssFile?>" />
+    <link rel="stylesheet" href="<?= $CssFile ?>" />
 
 </head>
 

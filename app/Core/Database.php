@@ -7,7 +7,7 @@ class Database
 
     public function __construct()
     {
-        $dsn = "mysql:host=localhost;dbname=bame_records;port=3306;";
+        $dsn = "mysql:host=127.0.0.1;dbname=bame_records;port=3306;";
         $this->connection = new PDO($dsn, 'root', 'root', [
 
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -23,16 +23,16 @@ class Database
     }
 }
 
-/*
-$database = new Database;
+//  $database = new Database;
 
-example
-$names = $database->query('select * from artists');
-if ($names) {
-foreach ($names as $name) {
-echo "<li>" . $name['name'] . "</li>";
-}
-} else {
-echo "its no connect";
-}
- */
+//  if database is work show it work else show 
+
+//  $names = $database->query('select * from artists');
+// if ($names) {
+// foreach ($names as $name) {
+// echo "<li>" . $name['name'] . "</li>";
+// }
+// } else {
+// echo "its no connect";
+// }
+ 

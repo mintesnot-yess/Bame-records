@@ -5,6 +5,7 @@ let PlayToHidden = document.querySelectorAll(".play-hidden");
 let ArtistName = document.querySelector(".artist");
 let MusicTitle = document.querySelector(".title");
 let AlbemArt = document.querySelector(".bg-image");
+let YoutubeLink = document.querySelector(".youtube-link");
 let VolumeCtr = document.querySelector(".volume");
 
 function toggleNavList() {
@@ -12,40 +13,64 @@ function toggleNavList() {
 }
 
 let StudioImages = document.querySelectorAll("#studio-images img");
+//music source list
+
+$.get(`/musics?json`, function (data) {
+  let musics = JSON.parse(data);
+  console.table(musics[0].artist);
+  ArtistName.textContent = musics[0].artist;
+  MusicTitle.textContent = musics[0].title;
+  AlbemArt.style.background = `url("assets/music/albem-arts/${musics[0].albem_art}") center/cover`;
+  YoutubeLink.href = musics[0].link;
+
+  audio.src = `assets/music/music-src/${musics[0].music}`;
+
+  $(".NextMusicBtn").click(function (e) {
+    MusicCurrentIndex = (MusicCurrentIndex + 1) % musics.length;
+
+    ArtistName.textContent = musics[MusicCurrentIndex].artist;
+    MusicTitle.textContent = musics[MusicCurrentIndex].title;
+    YoutubeLink.href = musics[MusicCurrentIndex].link;
+    AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
+    audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
+    AudioPlayer();
+  });
+
+  $(".previousMusicBtn").click(function (e) {
+    MusicCurrentIndex = (MusicCurrentIndex - 1) % musics.length;
+    YoutubeLink.href = musics[MusicCurrentIndex].link;
+
+    ArtistName.textContent = musics[MusicCurrentIndex].artist;
+    MusicTitle.textContent = musics[MusicCurrentIndex].title;
+    AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
+    audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
+    AudioPlayer();
+  });
+
+  audio.addEventListener("ended", function () {
+    YoutubeLink.style.height = "100%";
+    setTimeout(() => {
+      YoutubeLink.style.height = "0%";
+
+      MusicCurrentIndex = (MusicCurrentIndex + 1) % musics.length;
+      ArtistName.textContent = musics[MusicCurrentIndex].artist;
+      MusicTitle.textContent = musics[MusicCurrentIndex].title;
+      YoutubeLink.href = musics[MusicCurrentIndex].link;
+      AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
+      audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
+      AudioPlayer();
+    }, 10000);
+  });
+});
+
+// -------------------=============================
+
 let ImageCurrentIndexBame = 0;
 let ImageCurrentIndex = 0;
-let MusicCurrentIndex = 1;
-//music source list
-let musicList = [
-  {
-    artist: "Negestst",
-    title: "ere",
-    src: "assets/music/music-src/Negestat - Eree (Official Music Video).mp3",
-    alber_art: "assets/music/albem-arts/negestat1.jpg"
-  },
-
-  {
-    artist: "Fire Ball ",
-    title: "Velocity",
-    src: "assets/music/music-src/Firebal.mp3",
-    alber_art: "assets/music/albem-arts/R.jpeg"
-  },
-
-  {
-    artist: "Go one",
-    title: "1 2 3 Go",
-    src: "assets/music/music-src/Go.mp3",
-    alber_art: "assets/music/albem-arts/albem1.jpeg"
-  }
-];
-
 StudioImages[1].style.flex = "1";
 StudioImages[1].style.height = "100%";
 
-ArtistName.textContent = musicList[0].artist;
-MusicTitle.textContent = musicList[0].title;
-AlbemArt.style.background = `url("${musicList[0].alber_art}") center/cover`;
-audio.src = musicList[0].src;
+let MusicCurrentIndex = 0;
 var ImageNext = true;
 
 function StudioImageNext() {
@@ -67,12 +92,12 @@ function AudioPlayer() {
   }
 }
 
-audio.addEventListener("pause", function() {
+audio.addEventListener("pause", function () {
   playButton.forEach(item => {
     item.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
   });
 });
-audio.addEventListener("play", function() {
+audio.addEventListener("play", function () {
   playButton.forEach(item => {
     item.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
   });
@@ -86,43 +111,25 @@ function formatTime(time) {
   return `${minutes}:${seconds}`;
 }
 
-audio.addEventListener("timeupdate", function() {
+audio.addEventListener("timeupdate", function () {
+  let duration = document.querySelector("#duration");
   let MusicSlider = document.querySelector("input[type='range']");
   MusicSlider.value = (audio.currentTime / audio.duration) * 100;
   let currentTime = document.querySelector("#current-time");
-  let duration = document.querySelector("#duration");
   let ProgressBar = document.querySelector(".progress-bar");
   ProgressBar.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
   currentTime.textContent = formatTime(audio.currentTime);
   duration.textContent = formatTime(audio.duration);
 });
 
-audio.addEventListener("ended", function() {
-  nextMusic();
-});
+// audio.addEventListener("ended", function() {
+//   YoutubeLink.style.height = "55%";
+//   setTimeout(() => {
+//     YoutubeLink.style.height = "0%";
+//   }, 5000);
+// });
 
-function nextMusic() {
-  let currentMusic = musicList[MusicCurrentIndex];
-  ArtistName.textContent = currentMusic.artist;
-  MusicTitle.textContent = currentMusic.title;
-  audio.src = currentMusic.src;
-
-  MusicCurrentIndex = (MusicCurrentIndex + 1) % musicList.length;
-  AlbemArt.style.background = `url("${currentMusic.alber_art}") center/cover`;
-  AudioPlayer();
-}
-
-function previousMusic() {
-  let currentMusic = musicList[MusicCurrentIndex];
-  ArtistName.textContent = currentMusic.artist;
-  MusicTitle.textContent = currentMusic.title;
-  audio.src = currentMusic.src;
-  MusicCurrentIndex = (MusicCurrentIndex - 1) % musicList.length;
-  AlbemArt.style.background = `url("${currentMusic.alber_art}") center/cover`;
-  AudioPlayer();
-}
-
-VolumeCtr.addEventListener("click", function() {
+VolumeCtr.addEventListener("click", function () {
   let volume = audio.volume;
   audio.volume = volume === 0 ? 1 : 0;
 
@@ -134,7 +141,7 @@ VolumeCtr.addEventListener("click", function() {
 });
 
 // booking form
-$("#studio-booking-form").submit(function(e) {
+$("#studio-booking-form").submit(function (e) {
   e.preventDefault();
 
   let name = $("#name").val();
@@ -154,7 +161,7 @@ $("#studio-booking-form").submit(function(e) {
       time: time
     },
 
-    function(data) {
+    function (data) {
       // if (data.message === "success") {
       //   $("#booking-form")[0].reset();
       //   $(".bg-msg").html(data.message);
@@ -186,7 +193,7 @@ function notifyMe(title, message, links) {
       notification.close();
     };
   } else {
-    Notification.requestPermission().then(function(permission) {
+    Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {
         notifyMe(title, message, links);
       }
@@ -194,15 +201,15 @@ function notifyMe(title, message, links) {
   }
 }
 
-function showNotification(NotTitle, message) {}
+function showNotification(NotTitle, message) { }
 
-$("#refresh").click(function(e) {
+$("#refresh").click(function (e) {
   location.reload();
 });
 // Refresh the page
 
 // featch booking details
-$.get("studio-booking?json", function(data) {
+$.get("studio-booking?json", function (data) {
   let bookingDate = JSON.parse(data)[0]["date"];
   let currentDate = new Date();
   let currentDateFormat = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
@@ -211,3 +218,42 @@ $.get("studio-booking?json", function(data) {
     notifyMe("BAME RECORDS Booking ALERT", `One Day Left | Look at this now`, "http://localhost:8000/#form");
   }
 });
+
+function Artists() {
+  $.get(`artists?json=8`, function (data) {
+    let artists = JSON.parse(data);
+    let artistList = $("#artist-list");
+    artists.forEach(artist => {
+      let artistCard = `
+
+ <a href="${artist.link}" class="card-list card-animation">
+   <img alt="${artist.name} " src="assets/images/artist/${artist.picture}" />
+    <h3>${artist.name}</h3>
+       <p>${artist.catagory}</p>
+       </a>
+   `;
+      artistList.append(artistCard);
+    });
+  });
+}
+Artists();
+
+function AllArtists() {
+  $("#artist-list a").remove();
+  $("#all-artist-btn").hide();
+  $.get(`artists?all_artists`, function (data) {
+    let artists = JSON.parse(data);
+    let artistList = $("#artist-list");
+    artists.forEach(artist => {
+      let artistCard = `
+
+ <a href="${artist.link}" class="card-list ">
+   <img  alt="${artist.name} " src="assets/images/artist/${artist.picture}" />
+    <h3>${artist.name}</h3>
+       <p>${artist.catagory}</p>
+       </a>
+   `;
+      artistList.append(artistCard);
+    });
+  });
+}

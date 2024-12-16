@@ -12,4 +12,13 @@ if (isset($_GET['all-artists'])) {
 }
 $current_date = date('Y-m-d');
 $studioFreeTimes = $database->query("SELECT * FROM `studio-free-time`");
+
+
+
+
+
+
+
+
+
 include views('index.view.php');

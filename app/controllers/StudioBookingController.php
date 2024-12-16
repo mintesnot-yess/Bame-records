@@ -1,6 +1,6 @@
 <?php
 session_start();
-$database = new Database;
+ $database = new Database;
 
 $current_date = date('Y-m-d');
 
@@ -38,6 +38,10 @@ if (isset($_POST['booking_submit'])) {
     }
 
 }
+
+
+
+
 // send to json
 if (isset($_GET['json'])) {
     $json_data = array();
@@ -56,6 +60,8 @@ if (isset($_GET['json'])) {
     echo json_encode(value: $json_data);
     exit();
 }
+
+
 
 // delete book using $_GET['delete-book']
 if (isset($_GET['delete-booking'])) {

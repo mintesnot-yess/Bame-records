@@ -1,4 +1,5 @@
 <?php
+session_start();
 $database = new Database;
 
 $PageTitle = 'BAME-ADMIN-LOGIN';
@@ -26,10 +27,11 @@ if (isset($_SESSION['admin'])) {
             VALUES ( '$device_id', '$device_type', '$last_login', '$admin_id');";
             $database->query($query);
             //check admin email and password from database
-            $admin = $database->query("select * from admin_ where email = :email", ['email' => $_POST['email']])->fetchAll();
+            $admin = $database->query("select * from admin where email = :email", ['email' => $_POST['email']])->fetchAll();
 
             foreach ($admin as $admins) {
                 $admins_email = $admins['email'];
+                
                 $admins_pass = $admins['password'];
             }
 

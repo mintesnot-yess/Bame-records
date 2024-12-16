@@ -1028,8 +1028,8 @@ main .cards_contaier {
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin: 10px auto;
+    gap: 30px;
+    margin: 20px auto;
 }
 
 main .cards_contaier .card {
@@ -1513,6 +1513,34 @@ main .cards_contaier .admin {
     width: 799px;
     height: 300px;
     display: flex;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .youtube-link {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 0%;
+        background: #ffffff00;
+        backdrop-filter: brightness(.5) blur(5px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+
+        i {
+            font-size: 5rem;
+            color: red;
+        }
+
+        span {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    }
 }
 
 .content-card {

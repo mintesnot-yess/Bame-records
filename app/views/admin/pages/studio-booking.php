@@ -24,43 +24,43 @@
 
             <?php foreach ($bookings as $booking): ?>
 
-                <tbody>
-                    <tr id="45 ">
-                        <td>
-                            <div class=" contents ">
-                                <i class="fas fa-calendar-check    "></i>
-                                <span>
-                                    <?= $booking['date'] ?>
-                                </span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class=" contents ">
-                                <?= $booking['time'] ?>
-                            </div>
-                        </td>
-                        <td>
-                            <div class=" contents ">
-                                <?= $booking['name'] ?>
-                            </div>
-                        </td>
-                        <td>
-                            <div class=" contents ">
-                                <?= $booking['email'] ?>
-                            </div>
-                        </td>
-                        <td>
-                            <div class=" contents ">
-                                <?= $booking['phone'] ?>
-                            </div>
-                        </td>
-                        <td>
-                            <div class=" contents ">
-                                <?= $booking['created-date'] ?>
-                            </div>
-                        </td>
+            <tbody>
+                <tr id="45 ">
+                    <td>
+                        <div class=" contents ">
+                            <i class="fas fa-calendar-check    "></i>
+                            <span>
+                                <?= $booking['date'] ?>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" contents ">
+                            <?= $booking['time'] ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" contents ">
+                            <?= $booking['name'] ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" contents ">
+                            <?= $booking['email'] ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" contents ">
+                            <?= $booking['phone'] ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" contents ">
+                            <?= $booking['created-date'] ?>
+                        </div>
+                    </td>
 
-                </tbody>
+            </tbody>
             <?php endforeach ?>
 
         </table>
@@ -92,35 +92,36 @@
             </thead>
 
             <?php foreach ($studioFreeTimes as $studioFreeTime): ?>
-                <tbody>
-                    <tr id="45 ">
-                        <td>
-                            <div class=" contents ">
-                                <i class="fas fa-clock    "></i>
-                                <span>
-                                    <?= $studioFreeTime['free-time-1'] ?>
-                                </span>_
-                                <span>
-                                    <?= $studioFreeTime['free-time-2'] ?>
-                                </span>
-                            </div>
-                        </td>
+            <tbody>
+                <tr id="45 ">
+                    <td>
+                        <div class=" contents ">
+                            <i class="fas fa-clock    "></i>
+                            <span>
+                                <?= $studioFreeTime['free-time-1'] ?>
+                            </span>_
+                            <span>
+                                <?= $studioFreeTime['free-time-2'] ?>
+                            </span>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class=" contents ">
-                                <span>
-                                    <a href="?delete-studio-free-time= <?= $studioFreeTime['id'] ?>" class="danger_btn">
-                                        Delete
-                                    </a>
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class=" contents ">
+                            <span>
+                                <a href="?delete-studio-free-time= <?= $studioFreeTime['id'] ?>" class="btn">
+                                    <i class="fa fa-trash-alt    "></i>
 
-                    <!-- #region -->
+                                </a>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- #region -->
 
 
-                </tbody>
+            </tbody>
 
 
             <?php endforeach ?>
