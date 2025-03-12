@@ -349,9 +349,6 @@ $current_date = date('Y-m-d');
 
 
                             <table id="booking-table tbody"></table>
-
-
-
                             <p>
                                 <strong> <i class="fa fa-calendar" aria-hidden="true"> </i>
                                 </strong><?= $_SESSION['booking_details']['date'] ?> </strong>

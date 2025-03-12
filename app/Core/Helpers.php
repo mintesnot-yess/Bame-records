@@ -16,7 +16,7 @@ function views($path, $attiributes = [])
     return base_path(path: 'app/views/' . $path);
 }
 
-function routeTocontroller($url, $routes)
+function routeToController($url, $routes)
 {
     if (array_key_exists($url, $routes)) {
         include base_path($routes[$url]);

@@ -59,12 +59,20 @@ html {
 @keyframes card-animation {
     0% {
         opacity: 0;
-        scale: .9;
+        -webkit-transform: translateY(50%);
+        -moz-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        -o-transform: translateY(50%);
+        transform: translateY(50%);
     }
 
     100% {
-        scale: 1;
         opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -103,11 +111,11 @@ html {
 @keyframes bg-image-animation {
 
     0% {
-        background: url("../images/music-production.jpeg") center/cover fixed;
+        background: url("../images/bame-bg2.jpg") center/cover fixed;
     }
 
     50% {
-        background: url("../images/gutar.jpeg") center/cover fixed;
+        background: url("../images/bame-bg1.jpg") center/cover fixed;
     }
 
     70% {
@@ -388,7 +396,6 @@ article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
     gap: 20px;
     width: 100%;
 

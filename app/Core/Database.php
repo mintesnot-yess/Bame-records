@@ -9,7 +9,6 @@ class Database
     {
         $dsn = "mysql:host=127.0.0.1;dbname=bame_records;port=3306;";
         $this->connection = new PDO($dsn, 'root', 'root', [
-
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]);
     }
