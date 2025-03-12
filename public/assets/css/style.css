@@ -6,7 +6,7 @@
     transition: all 0.4s;
 }
 
-html {
+:root {
     --white: #ffffff;
     --black: #000000;
     --black-op-50: #000000c2;
@@ -18,6 +18,10 @@ html {
     /* --gray: #4b4a4a48; */
     --gray1: #adadad;
     --gray2: #adadad48;
+}
+
+html {
+
     scroll-behavior: smooth;
     animation: bg-image-animation;
     animation-timeline: scroll();
@@ -111,19 +115,19 @@ html {
 @keyframes bg-image-animation {
 
     0% {
-        background: url("../images/bame-bg2.jpg") center/cover fixed;
+        background: url("../images/bg-front.jpg") center/cover fixed;
     }
 
     50% {
-        background: url("../images/bame-bg1.jpg") center/cover fixed;
+        background: url("../images/bg-left-sidered_1500x1000.jpg") center/cover fixed;
     }
 
     70% {
-        background: url("../images/gutar.jpeg") center/cover fixed;
+        background: url("../images/kik_1500x1000.jpg") center/cover fixed;
     }
 
     100% {
-        background: url("../images/podcast.png") center/cover fixed;
+        background: url("../images/mic_1500x1000.jpg") center/cover fixed;
     }
 
 }
