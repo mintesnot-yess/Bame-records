@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     transition: all 0.4s;
 }
 
-html {
+:root {
     --white: #ffffff;
     --black: #000000;
     --black-op-50: #000000c2;
@@ -16,6 +18,10 @@ html {
     /* --gray: #4b4a4a48; */
     --gray1: #adadad;
     --gray2: #adadad48;
+}
+
+html {
+
     scroll-behavior: smooth;
     animation: bg-image-animation;
     animation-timeline: scroll();
@@ -57,12 +63,20 @@ html {
 @keyframes card-animation {
     0% {
         opacity: 0;
-        scale: .9;
+        -webkit-transform: translateY(50%);
+        -moz-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        -o-transform: translateY(50%);
+        transform: translateY(50%);
     }
 
     100% {
-        scale: 1;
         opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -87,22 +101,33 @@ html {
 
 }
 
+@keyframes content-animation-text {
+
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(-30%);
+
+    }
+
+}
+
 @keyframes bg-image-animation {
 
     0% {
-        background: url("../images/music-production.jpeg") center/cover fixed;
+        background: url("../images/bg-front.jpg") center/cover fixed;
     }
 
     50% {
-        background: url("../images/gutar.jpeg") center/cover fixed;
+        background: url("../images/bg-left-sidered_1500x1000.jpg") center/cover fixed;
     }
 
     70% {
-        background: url("../images/gutar.jpeg") center/cover fixed;
+        background: url("../images/kik_1500x1000.jpg") center/cover fixed;
     }
 
     100% {
-        background: url("../images/podcast.png") center/cover fixed;
+        background: url("../images/mic_1500x1000.jpg") center/cover fixed;
     }
 
 }
@@ -126,9 +151,9 @@ body::-webkit-scrollbar {
 
 .horizontal-line {
     width: 200px;
-    margin: 40px auto;
-    background: var(--gray2);
-    height: 1px;
+    margin: 50px auto;
+    background: var(--gray1);
+    height: 2px;
 }
 
 .t-align-end {
@@ -314,11 +339,10 @@ article {
     animation-timeline: scroll();
 
     .text {
-
+        animation: content-animation-text .5s;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        font-family: "Sour Gummy", sans-serif;
 
         h1 {
             font-size: 4rem;
@@ -376,7 +400,6 @@ article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
     gap: 20px;
     width: 100%;
 

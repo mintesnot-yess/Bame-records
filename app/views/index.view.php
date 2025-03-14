@@ -28,7 +28,7 @@ $current_date = date('Y-m-d');
             <div onclick="document.querySelector('.pop_container').style.display = 'flex'" class="card"
                 id="about-container">
                 <section class="details-card">
-                    <img src="assets/images/music-production.jpeg" alt="Card Image" />
+                    <img src="assets/images/IMG_7241_1000x667.jpg" alt="Card Image" />
                     <div class="card-content">
                         <h2 class="card-title">About BAME</h2>
                         <p class="card-description">
@@ -50,7 +50,7 @@ $current_date = date('Y-m-d');
                     <button><i class="fa fa-times"></i></button>
 
                     <img alt="Street view of a historic building with people walking" class="header-img"
-                        src="assets/images/gutar.jpeg" />
+                        src="assets/images/drums1_1500x1000.jpg" />
                     <div class="info">
                         <h2>BAME RECORDS</h2>
                         <div class="link">
@@ -87,7 +87,7 @@ $current_date = date('Y-m-d');
             </div>
 
             <section class="card details-card">
-                <img src="assets/images/gutar.jpeg" alt="Card Image" />
+                <img src="assets/images/mic_1500x1000.jpg" alt="Card Image" />
                 <div class="card-content">
                     <h2 class="card-title">Mission and Vision</h2>
                     <p class="card-description">
@@ -99,7 +99,7 @@ $current_date = date('Y-m-d');
                 </div>
             </section>
             <section class="card details-card">
-                <img src="assets/images/headphone-piano.png" alt="Card Image" />
+                <img src="assets/images/IMG_7219_1000x667.jpg" alt="Card Image" />
                 <div class="card-content">
                     <h2 class="card-title">Genres and Specialization</h2>
                     <p class="card-description">
@@ -258,10 +258,10 @@ $current_date = date('Y-m-d');
             <div class="card">
                 <div class="image-slider">
                     <div id="studio-images" class="image-container">
-                        <img src="assets/images/music-production.jpeg" alt="" />
-                        <img src="assets/images/podcast.png" alt="" />
-                        <img src="assets/images/The-Best-Music-Production-Podcasts-1536x1023.jpg" alt="" />
-                        <img src="assets/images/LS-208_InControlRoom.jpeg" alt="" />
+                        <img src="assets/images/drum-wide_11zon.jpg" alt="" />
+                        <img src="assets/images/keyboard_1500x1000.jpg" alt="" />
+                        <img src="assets/images/image_1500x1000.jpg" alt="" />
+                        <img src="assets/images/kik_1500x1000.jpg" alt="" />
 
                     </div>
                     <div class="controls">

@@ -15,67 +15,52 @@ function toggleNavList() {
 let StudioImages = document.querySelectorAll("#studio-images img");
 //music source list
 
-let musics = [
-  {
-    artist: "negestat",
-    title: "Ere ",
-    albem_art: "negestat1.jpg",
-    music: "Negestat - Eree (Official Music Video) (mp3cut.net) (1).mp3",
-    link: "https://www.youtube.com/watch?v=wbfCiClxLlM ",
-    "created-at": null
-  },
-  {
-    artist: "selena gomez",
-    title: "im so far",
-    albem_art: "freepik__candid-image-photography-natural-textures-highly-r__57292.jpeg",
-    music: "Se Acabo Remix (Explicit) - The Beatnuts Feat. Method Man TikTok dance.mp3",
-    link: "https://www.youtube.com/watch?v=wbfCiClxLlM",
-    "created-at": null
-  }
-];
+$.get(`/musics?json`, function (data) {
+  let musics = JSON.parse(data);
+  console.table(musics[0].artist);
+  ArtistName.textContent = musics[0].artist;
+  MusicTitle.textContent = musics[0].title;
+  AlbemArt.style.background = `url("assets/music/albem-arts/${musics[0].albem_art}") center/cover`;
+  YoutubeLink.href = musics[0].link;
 
-ArtistName.textContent = musics[0].artist;
-MusicTitle.textContent = musics[0].title;
-AlbemArt.style.background = `url("assets/music/albem-arts/${musics[0].albem_art}") center/cover`;
-YoutubeLink.href = musics.link;
+  audio.src = `assets/music/music-src/${musics[0].music}`;
 
-audio.src = `assets/music/music-src/${musics[0].music}`;
-
-$(".NextMusicBtn").click(function(e) {
-  MusicCurrentIndex = (MusicCurrentIndex + 1) % musics.length;
-
-  ArtistName.textContent = musics[MusicCurrentIndex].artist;
-  MusicTitle.textContent = musics[MusicCurrentIndex].title;
-  YoutubeLink.href = musics[MusicCurrentIndex].link;
-  AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
-  audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
-  AudioPlayer();
-});
-
-$(".previousMusicBtn").click(function(e) {
-  MusicCurrentIndex = (MusicCurrentIndex - 1) % musics.length;
-  YoutubeLink.href = musics[MusicCurrentIndex].link;
-
-  ArtistName.textContent = musics[MusicCurrentIndex].artist;
-  MusicTitle.textContent = musics[MusicCurrentIndex].title;
-  AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
-  audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
-  AudioPlayer();
-});
-
-audio.addEventListener("ended", function() {
-  YoutubeLink.style.height = "100%";
-  setTimeout(() => {
-    YoutubeLink.style.height = "0%";
-
+  $(".NextMusicBtn").click(function (e) {
     MusicCurrentIndex = (MusicCurrentIndex + 1) % musics.length;
+
     ArtistName.textContent = musics[MusicCurrentIndex].artist;
     MusicTitle.textContent = musics[MusicCurrentIndex].title;
     YoutubeLink.href = musics[MusicCurrentIndex].link;
     AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
     audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
     AudioPlayer();
-  }, 10000);
+  });
+
+  $(".previousMusicBtn").click(function (e) {
+    MusicCurrentIndex = (MusicCurrentIndex - 1) % musics.length;
+    YoutubeLink.href = musics[MusicCurrentIndex].link;
+
+    ArtistName.textContent = musics[MusicCurrentIndex].artist;
+    MusicTitle.textContent = musics[MusicCurrentIndex].title;
+    AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
+    audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
+    AudioPlayer();
+  });
+
+  audio.addEventListener("ended", function () {
+    YoutubeLink.style.height = "100%";
+    setTimeout(() => {
+      YoutubeLink.style.height = "0%";
+
+      MusicCurrentIndex = (MusicCurrentIndex + 1) % musics.length;
+      ArtistName.textContent = musics[MusicCurrentIndex].artist;
+      MusicTitle.textContent = musics[MusicCurrentIndex].title;
+      YoutubeLink.href = musics[MusicCurrentIndex].link;
+      AlbemArt.style.background = `url("assets/music/albem-arts/${musics[MusicCurrentIndex].albem_art}") center/cover`;
+      audio.src = `assets/music/music-src/${musics[MusicCurrentIndex].music}`;
+      AudioPlayer();
+    }, 10000);
+  });
 });
 
 // -------------------=============================
@@ -107,12 +92,12 @@ function AudioPlayer() {
   }
 }
 
-audio.addEventListener("pause", function() {
+audio.addEventListener("pause", function () {
   playButton.forEach(item => {
     item.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
   });
 });
-audio.addEventListener("play", function() {
+audio.addEventListener("play", function () {
   playButton.forEach(item => {
     item.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
   });
@@ -126,7 +111,7 @@ function formatTime(time) {
   return `${minutes}:${seconds}`;
 }
 
-audio.addEventListener("timeupdate", function() {
+audio.addEventListener("timeupdate", function () {
   let duration = document.querySelector("#duration");
   let MusicSlider = document.querySelector("input[type='range']");
   MusicSlider.value = (audio.currentTime / audio.duration) * 100;
@@ -137,7 +122,14 @@ audio.addEventListener("timeupdate", function() {
   duration.textContent = formatTime(audio.duration);
 });
 
-VolumeCtr.addEventListener("click", function() {
+// audio.addEventListener("ended", function() {
+//   YoutubeLink.style.height = "55%";
+//   setTimeout(() => {
+//     YoutubeLink.style.height = "0%";
+//   }, 5000);
+// });
+
+VolumeCtr.addEventListener("click", function () {
   let volume = audio.volume;
   audio.volume = volume === 0 ? 1 : 0;
 
@@ -149,7 +141,7 @@ VolumeCtr.addEventListener("click", function() {
 });
 
 // booking form
-$("#studio-booking-form").submit(function(e) {
+$("#studio-booking-form").submit(function (e) {
   e.preventDefault();
 
   let name = $("#name").val();
@@ -169,7 +161,12 @@ $("#studio-booking-form").submit(function(e) {
       time: time
     },
 
-    function(data) {
+    function (data) {
+      // if (data.message === "success") {
+      //   $("#booking-form")[0].reset();
+      //   $(".bg-msg").html(data.message);
+      // }
+
       if (data == "Booking successful") {
         $(".bg-msg").html(`<p>${data}</p>`);
         $("#studio-booking-form").hide();
@@ -196,7 +193,7 @@ function notifyMe(title, message, links) {
       notification.close();
     };
   } else {
-    Notification.requestPermission().then(function(permission) {
+    Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {
         notifyMe(title, message, links);
       }
@@ -204,15 +201,15 @@ function notifyMe(title, message, links) {
   }
 }
 
-function showNotification(NotTitle, message) {}
+function showNotification(NotTitle, message) { }
 
-$("#refresh").click(function(e) {
+$("#refresh").click(function (e) {
   location.reload();
 });
 // Refresh the page
 
 // featch booking details
-$.get("studio-booking?json", function(data) {
+$.get("studio-booking?json", function (data) {
   let bookingDate = JSON.parse(data)[0]["date"];
   let currentDate = new Date();
   let currentDateFormat = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
@@ -223,67 +220,11 @@ $.get("studio-booking?json", function(data) {
 });
 
 function Artists() {
-  let artists = [
-    {
-      name: "Negestat",
-      picture: "negestat.jpg ",
-      link: "https://negestatofficial.com/ ",
-      catagory: "Music Artist",
-      "created-at": "2024-11-02"
-    },
-    {
-      name: "Rophnan",
-      picture: "freepik__candid-image-photography-natural-textures-highly-r__57291.jpeg",
-      link: "https://rophnan.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "Tedy yo",
-      picture: "teddyo.jpg",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "Jalud",
-      picture: "jalud.jpg",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "samigo",
-      picture: "samigo.jpeg",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "abeba desalegn",
-      picture: "abeba-desalegn.jpg",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "kake",
-      picture: "4zw9hzeh.png",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    },
-    {
-      name: "kake",
-      picture: "channels4_profile.jpg",
-      link: "https://negestatofficial.com/",
-      catagory: "music artist",
-      "created-at": "2024-11-03"
-    }
-  ];
-  let artistList = $("#artist-list");
-  artists.forEach(artist => {
-    let artistCard = `
+  $.get(`artists?json=8`, function (data) {
+    let artists = JSON.parse(data);
+    let artistList = $("#artist-list");
+    artists.forEach(artist => {
+      let artistCard = `
 
  <a href="${artist.link}" class="card-list card-animation">
    <img alt="${artist.name} " src="assets/images/artist/${artist.picture}" />
@@ -291,8 +232,28 @@ function Artists() {
        <p>${artist.catagory}</p>
        </a>
    `;
-    artistList.append(artistCard);
+      artistList.append(artistCard);
+    });
   });
 }
-
 Artists();
+
+function AllArtists() {
+  $("#artist-list a").remove();
+  $("#all-artist-btn").hide();
+  $.get(`artists?all_artists`, function (data) {
+    let artists = JSON.parse(data);
+    let artistList = $("#artist-list");
+    artists.forEach(artist => {
+      let artistCard = `
+
+ <a href="${artist.link}" class="card-list ">
+   <img  alt="${artist.name} " src="assets/images/artist/${artist.picture}" />
+    <h3>${artist.name}</h3>
+       <p>${artist.catagory}</p>
+       </a>
+   `;
+      artistList.append(artistCard);
+    });
+  });
+}
