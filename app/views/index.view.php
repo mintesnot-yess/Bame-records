@@ -53,12 +53,10 @@ include base_path("app/views/partials/header.php");
                     <div class="info">
                         <h2>BAME RECORDS</h2>
                         <div class="link">
-                            <a target="_blank" href="https://www.youtube.com"> <i class="fa-brands fa-google"></i> </a>
-                            <a href=""> <i class="fa-brands fa-facebook"></i> </a> <a href=""> <i
-                                    class="fa-brands fa-youtube"></i> </a>
-                            <a href=""> <i class="fa-brands fa-tiktok"></i> </a> <a href=""> <i
-                                    class="fa-brands fa-x"></i> </a>
-                        </div>
+                            <a href="https://www.youtube.com/@bamerecords" target="_blank"> <i class="fa-brands fa-youtube"></i> </a>
+                            <a href="https://www.tiktok.com/@bamepodcast" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
+                             <a href="https://www.facebook.com/bamerecords" target="_blank"> <i class="fa-brands fa-facebook"></i> </a> 
+                         </div>
 
                         <p>
                             BAME Records is a renowned music studio label based in Ethiopia that has been a key player
@@ -79,8 +77,8 @@ include base_path("app/views/partials/header.php");
                         </p>
                     </div>
                     <div class="phone">
-                        <a href=""><i class="fa fa-phone"></i> +251 987654321</a> <a href=""><i class="fa fa-phone"></i>
-                            +251 987654321</a>
+                        <a href="tel:+251911414223"><i class="fa fa-phone"></i> +251911414223</a>
+                        <a href="tel:+251932758080"><i class="fa fa-phone"></i> +251932758080</a>
                     </div>
                 </div>
             </div>
@@ -161,7 +159,10 @@ include base_path("app/views/partials/header.php");
         </div>
 
         <div class="horizontal-line"></div>
-
+         <div class="content-card">
+<iframe style="width:100%;height:400px"   src="https://www.youtube.com/embed/videoseries?si=0CbiHpAdN-j-Snns&amp;list=PL3BIj7ihkGJU9JjF3smdUTil6op9tIdwn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>   
+    <div class="horizontal-line"></div>
 
         <article class="card-container  ">
             <section class="card ">
@@ -357,9 +358,9 @@ include base_path("app/views/partials/header.php");
                                 </strong><?= $_SESSION['booking_details']['time'] ?>
                             </p>
 
-                            <p>
+                            <!-- <p>
                                 <strong> <i class="fa fa-money-bill" aria-hidden="true"> </i> </strong> $10 per hour
-                            </p>
+                            </p> -->
                             <!--  -->
                             contacts
                             <p>
@@ -367,11 +368,12 @@ include base_path("app/views/partials/header.php");
                                 Addis Ababa
                             </p>
                             <p>
-                                <strong> <i class="fa fa-phone" aria-hidden="true"> </i> </strong>+25194013434
+                                <strong> <i class="fa fa-phone" aria-hidden="true"> </i> </strong>+251911414223 | 251932758080
                             </p>
                             <p>
-                                <strong> <i class="fa fa-at" aria-hidden="true"> </i> </strong>bame@gmail.com
+                                <strong> <i class="fa fa-at" aria-hidden="true"> </i> </strong>bamerecords@gmail.com
                             </p>
+
                             <p>
                                 <a class="danger-text"
                                     href="studio-booking?delete-booking=<?= $_SESSION['booking_details']['email'] ?>">

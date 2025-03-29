@@ -1143,7 +1143,7 @@ footer {
 
             &:hover {
                 background: #5554547e;
-                text-decoration: none;
+
             }
         }
     }
@@ -1195,11 +1195,18 @@ footer {
 
             &:hover {
                 background: #414141;
+                text-decoration: none;
 
                 i {
                     scale: 1.2;
                 }
             }
+        }
+
+        &:hover {
+            text-decoration: none;
+
+
         }
     }
 }
