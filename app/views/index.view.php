@@ -1,7 +1,7 @@
 <?php
 
 include base_path("app/views/partials/header.php");
- 
+
 ?>
 <div class="container">
     <?php include base_path("app/views/partials/nav.php"); ?>
@@ -53,10 +53,13 @@ include base_path("app/views/partials/header.php");
                     <div class="info">
                         <h2>BAME RECORDS</h2>
                         <div class="link">
-                            <a href="https://www.youtube.com/@bamerecords" target="_blank"> <i class="fa-brands fa-youtube"></i> </a>
-                            <a href="https://www.tiktok.com/@bamepodcast" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
-                             <a href="https://www.facebook.com/bamerecords" target="_blank"> <i class="fa-brands fa-facebook"></i> </a> 
-                         </div>
+                            <a href="https://www.youtube.com/@bamerecords" target="_blank"> <i
+                                    class="fa-brands fa-youtube"></i> </a>
+                            <a href="https://www.tiktok.com/@bamepodcast" target="_blank"> <i
+                                    class="fa-brands fa-tiktok"></i> </a>
+                            <a href="https://www.facebook.com/bamerecords" target="_blank"> <i
+                                    class="fa-brands fa-facebook"></i> </a>
+                        </div>
 
                         <p>
                             BAME Records is a renowned music studio label based in Ethiopia that has been a key player
@@ -95,6 +98,7 @@ include base_path("app/views/partials/header.php");
                     </p>
                 </div>
             </section>
+
             <section class="card details-card">
                 <img src="assets/images/IMG_7219_1000x667.jpg" alt="Card Image" />
                 <div class="card-content">
@@ -106,10 +110,10 @@ include base_path("app/views/partials/header.php");
                     </p>
                 </div>
             </section>
+
         </article>
 
         <div class="horizontal-line"></div>
-
 
         <div class="content-card">
 
@@ -122,12 +126,10 @@ include base_path("app/views/partials/header.php");
                     <section>
                         <div class="time"><span id="current-time">0:00</span> - <span id="duration">0:00</span>
                         </div>
-
                         <div class="slider">
                             <input type="range" min="0" max="100" value="0" />
                             <div class="progress-bar"></div>
                         </div>
-
                     </section>
 
                     <div class="controls">
@@ -158,11 +160,8 @@ include base_path("app/views/partials/header.php");
 
         </div>
 
+
         <div class="horizontal-line"></div>
-         <div class="content-card">
-<iframe style="width:100%;height:400px"   src="https://www.youtube.com/embed/videoseries?si=0CbiHpAdN-j-Snns&amp;list=PL3BIj7ihkGJU9JjF3smdUTil6op9tIdwn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>   
-    <div class="horizontal-line"></div>
 
         <article class="card-container  ">
             <section class="card ">
@@ -182,7 +181,16 @@ include base_path("app/views/partials/header.php");
             <div id="all-artist-btn" class="t-align-end"><button onclick="AllArtists()" class="btn"> View All
                     Artists </button></div>
         </article>
-
+        <div class="card-container ">
+            <section class="card  bg-gray ">
+                <h2 style="text-align: start;color:#fff" class="card-title ">Bame Podcast</h2>
+                <iframe style="width:100%;height:400px;"
+                    src="https://www.youtube.com/embed/videoseries?si=0CbiHpAdN-j-Snns&amp;list=PL3BIj7ihkGJU9JjF3smdUTil6op9tIdwn"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+        </div>
 
         <div ss="horizontal-line"></div>
         <article class="card-container event-organize">
@@ -284,7 +292,7 @@ include base_path("app/views/partials/header.php");
                     </div>
                     <!-- if booking have a sessio  -->
                     <?php if (!isset($_SESSION['booking_success'])): ?>
-                        
+
                         <form method="post" id="studio-booking-form">
                             <div class="form-group">
                                 <div class="d-flex">
@@ -368,7 +376,8 @@ include base_path("app/views/partials/header.php");
                                 Addis Ababa
                             </p>
                             <p>
-                                <strong> <i class="fa fa-phone" aria-hidden="true"> </i> </strong>+251911414223 | 251932758080
+                                <strong> <i class="fa fa-phone" aria-hidden="true"> </i> </strong>+251911414223 |
+                                251932758080
                             </p>
                             <p>
                                 <strong> <i class="fa fa-at" aria-hidden="true"> </i> </strong>bamerecords@gmail.com

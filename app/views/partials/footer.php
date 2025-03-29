@@ -30,7 +30,7 @@
             </p> -->
             <p><i class="fa fa-phone" aria-hidden="true"></i> <a href="tell:+251911414223">+251911414223</a> </p>
             <p><i class="fa fa-phone" aria-hidden="true"></i> <a href="tell:+251932758080">+251932758080</a></p>
- 
+
         </div>
     </div>
     <div class="footer-bottom">
