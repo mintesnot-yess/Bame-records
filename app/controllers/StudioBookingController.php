@@ -4,7 +4,7 @@ session_start();
 
 $current_date = date('Y-m-d');
 
-// booking form sumit
+// booking form submit
 if (isset($_POST['booking_submit'])) {
 
     $name = $_POST['name'];
@@ -69,7 +69,7 @@ if (isset($_GET['delete-booking'])) {
     $email = $_GET['delete-booking'];
     $query = "DELETE FROM `studio-booking` WHERE `email` = '$email'";
     if ($database->query($query)) {
-        // delete everything in sesstion
+        // delete everything in session
         $_SESSION = array();
         session_destroy();
         header(header: "location:/#form");
