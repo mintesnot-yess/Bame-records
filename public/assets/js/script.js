@@ -8,6 +8,8 @@ let AlbemArt = document.querySelector(".bg-image");
 let YoutubeLink = document.querySelector(".youtube-link");
 let VolumeCtr = document.querySelector(".volume");
 
+
+
 function toggleNavList() {
   navList.style.display == "flex" ? (navList.style.display = "none") : (navList.style.display = "flex");
 }
@@ -257,3 +259,8 @@ function AllArtists() {
     });
   });
 }
+
+
+
+
+document.getElementById('year').innerHTML = new Date().getFullYear();

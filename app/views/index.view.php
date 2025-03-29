@@ -1,8 +1,7 @@
 <?php
 
 include base_path("app/views/partials/header.php");
-$current_date = date('Y-m-d');
-
+ 
 ?>
 <div class="container">
     <?php include base_path("app/views/partials/nav.php"); ?>
